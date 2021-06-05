@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Guess number machine</title>
+</head>
+<body>
+<h1> I Guess your number from range 0 -1000  </h1>
+<h2>{{ digit }}</h2>
+
+ <form action= {{ url_for('guess') }} method="POST">
+
+     <input type="hidden" value="{{  a }}" name="shot_hi">
+     <input type="hidden" value="{{  b }}" name="shot_lo">
+     <input type="hidden" value="{{  digit }}" name="digit">
+        <select name="result" id="">
+            <option value="0">you win</option>
+            <option value="1">to big</option>
+            <option value="2">to small</option>
+        </select>
+        <input type="submit"  value="send">
+
+ </form>
+</body>
+</html>
