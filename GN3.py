@@ -21,21 +21,23 @@ def guess():
     digit = first_guess()
     shot_min = 0
     shot_max = 1000
+    print("in 0", digit)
     if request.method == "POST":
-
+        shot_max = int(request.form["shot_hi"])
+        shot_min = int(request.form["shot_lo"])
         result = int(request.form["result"])
         if result == 0:
             return render_template("welcome.html")
         elif result == 1:
-            digit = first_guess(maxv=int(request.form["shot_hi"]), minv=int(request.form["shot_lo"]))
             shot_max = int(request.form["digit"])
-            print("shotmax", shot_max)
+            print("shotmax1", shot_max, f"sl {shot_min}", f"di1 {digit}")
+            digit = first_guess(shot_max, shot_min)
         elif result == 2:
-            digit = first_guess(maxv=int(request.form["shot_hi"]), minv=int(request.form["shot_lo"]))
             shot_min = int(request.form["digit"])
-            print("shotmmin", shot_min)
+            digit = first_guess(shot_max, shot_min)
 
-    return render_template("guees.html", form=form, digit=digit, a=shot_max,  b=shot_min)
+
+    return render_template("guees.html", form=form, digit=digit, shot_hi=shot_max, shot_lo=shot_min)
 
 
 def first_guess(maxv=1000, minv=0):

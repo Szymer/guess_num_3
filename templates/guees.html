@@ -10,8 +10,8 @@
 
  <form action= {{ url_for('guess') }} method="POST">
 
-     <input type="hidden" value="{{  a }}" name="shot_hi">
-     <input type="hidden" value="{{  b }}" name="shot_lo">
+     <input type="hidden" value="{{  shot_hi }}" name="shot_hi">
+     <input type="hidden" value="{{  shot_lo }}" name="shot_lo">
      <input type="hidden" value="{{  digit }}" name="digit">
         <select name="result" id="">
             <option value="0">you win</option>
